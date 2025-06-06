@@ -1,7 +1,7 @@
 :root {
-  --font-family: "IBM Plex Sans", sans-serif; 600 500  400
-  --second-family: "Epilogue", sans-serif; 700 
-  --third-family: "Roboto", sans-serif; 700
+  --font-family: "IBM Plex Sans", sans-serif;
+  --second-family: "Epilogue", sans-serif; 
+  --third-family: "Roboto", sans-serif; 
 }
 :root {
 	--color-scheme-1-background: var(--color-neutral-darkest);
