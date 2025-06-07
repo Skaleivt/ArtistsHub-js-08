@@ -1,0 +1,152 @@
+/* SECTION TITLE */
+.artists-section-title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.2;
+    color: var(--color-scheme-1-text);
+    margin-bottom: 64px;
+}
+
+.artists-section .container {
+    padding-left: 64px;
+    padding-right: 64px;
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* ARTISTS GRID */
+.artists-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ARTIST CARD */
+.artist-card {
+    background-color: transparent;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.artist-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ARTIST IMAGE */
+.artist-card-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+}
+
+/* ARTIST CONTENT */
+.artist-card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+/* GENRES */
+.artist-card-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+}
+
+.artist-card-genre {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--opacity-white-20);
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-scheme-1-text);
+    font-family: var(--font-family);
+}
+
+/* ARTIST NAME */
+.artist-card-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-scheme-1-text);
+    font-family: var(--font-family);
+}
+
+/* DESCRIPTION */
+.artist-card-description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    font-family: var(--font-family);
+    margin-bottom: 16px;
+}
+
+/* BUTTON */
+.artist-card-btn {
+    margin-top: auto;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: var(--color-scheme-1-text);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-family);
+}
+
+.artist-card-btn:hover {
+    color: #a259ff;
+}
+
+.artist-card-btn-icon {
+    fill: currentColor;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1024px) {
+    .artists-list {
+        grid-template-columns: 1fr;
+    }
+
+    .artists-section-title {
+        font-size: 40px;
+    }
+
+    .container {
+        max-width: 1440px;
+        padding-left: 64px;
+        padding-right: 64px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .artists-section-title {
+        font-size: 40px;
+    }
+}
+
