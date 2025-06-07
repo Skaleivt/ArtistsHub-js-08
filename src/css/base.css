@@ -67,7 +67,7 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
-  background: var(--color-scheme-1-background);
+  background-color: var(--color-scheme-1-background);
   box-sizing: border-box;
 }
 
