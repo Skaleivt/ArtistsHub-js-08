@@ -67,7 +67,7 @@
     width: 640px;
     height: 393px;
     object-fit: cover;
-    object-position: center;
+    object-position: top;
     border-radius: 16px;
     display: block;
 }
