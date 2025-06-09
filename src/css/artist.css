@@ -156,7 +156,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
+    padding: 12px 36px;
     font-size: 16px;
     font-weight: 600;
     color: #ffffff;
@@ -214,6 +214,9 @@
     .artists-list-wrapper {
         margin-top: 32px;
     }
+    .load-more-btn {
+        padding: 12px 135px;
+    }
 }
 
 @media screen and (max-width: 1024px) and (min-width: 768px) {
@@ -248,6 +251,10 @@
         .artist-card-content {
             max-width: 288px;
         }
+        .load-more-btn {
+            padding: 12px 94px;
+        }
+
 }
 
 /* Mobile */
@@ -287,6 +294,9 @@
         }
         .artist-card-description {
             margin-bottom: 0;
+        }
+        .load-more-btn {
+            padding: 12px 94px;   
         }
 }
 

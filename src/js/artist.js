@@ -46,12 +46,12 @@ function renderArtists(artists) {
                 : 'No description available.'
               }
             </p>
-            <button type="button" class="artist-card-btn">
-              Learn More
-              <svg class="artist-card-btn-icon" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;">
-                <path d="M0 14L8 7L0 0V14Z"/>
-              </svg>
-            </button>
+<button type="button" class="artist-card-btn">
+  Learn More
+  <svg class="artist-card-btn-icon" width="8" height="14">
+    <use href="#icon-triangle-white"></use>
+  </svg>
+</button>
           </div>
         </li>
       `;
