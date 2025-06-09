@@ -1,3 +1,30 @@
-<section>
-  <div class="container"></div>
-</section>
+<div id="artist-modal" class="artist-modal">
+  <div class="artist-backdrop" id="artist-backdrop"></div>
+  <div class="container artist-modal-container" role="dialog" aria-modal="true">
+    <button class="artist-modal-close" id="artist-modal-close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fiill="none">
+        <use href="/ArtistsHub-js-08/src/img/symbol-defs.svg#close-icon"></use>
+      </svg>
+    </button>
+
+    <div class="artist-modal-header">
+      <img id="artist-image" alt="Artist image" class="artist-photo" />
+      <div class="artist-info">
+        <h2 id="artist-name" class="artist-name"></h2>
+        <ul class="artist-meta">
+          <li>
+            <strong>Years active:</strong> <span id="artist-years"></span>
+          </li>
+          <li><strong>Sex:</strong> <span id="artist-sex"></span></li>
+          <li><strong>Members:</strong> <span id="artist-members"></span></li>
+          <li><strong>Country:</strong> <span id="artist-country"></span></li>
+        </ul>
+        <p id="artist-bio" class="artist-bio"></p>
+        <div id="artist-genres" class="artist-genres"></div>
+      </div>
+    </div>
+
+    <h3 class="albums-title">Albums</h3>
+    <div id="albums-container" class="albums-container"></div>
+  </div>
+</div>
