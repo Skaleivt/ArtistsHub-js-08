@@ -1,0 +1,113 @@
+.AboutSection {
+    padding: 64px 16px;
+    background-color: #060307;
+    color: #ffffff;
+
+}
+
+.AboutSectionContent {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.AboutSectionImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+}
+
+.AboutSectionIcon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+        fill: currentColor;
+}
+
+.AboutSectionTitle {
+
+    font-size: 44px;
+    font-weight: 700;
+   
+    font-family: "Epilogue", sans-serif;
+    line-height: 1.2; 
+    letter-spacing: -0.01em;
+}
+
+.AboutSectionText {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.AboutSectionIcon {
+    flex-shrink: 0;
+    fill: currentColor;
+}
+
+.AboutSectionDescription {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+   line-height: 1.5;
+    letter-spacing: 0em;
+}
+
+
+
+/* Tablet styles */
+@media screen and (min-width: 768px) {
+    .AboutSection {
+        padding: 64px 32px;
+    }
+
+    .AboutSectionContent {
+      gap: 24px;
+    }
+        .AboutSectionText {
+            gap: 24px;
+        }
+
+     .AboutSectionIcon {
+     width: 80px;
+    height: 80px;
+    
+                }
+    .AboutSectionImage {
+        min-width: 704px;
+    }
+
+    .AboutSectionTitle {
+        font-size: 28px;
+    }
+
+    .AboutSectionDescription {
+        font-size: 20px;
+    }
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1280px) {
+    .AboutSection {
+        padding: 112px 64px;
+    }
+
+    .AboutSectionContent {
+        flex-direction: row;
+        gap: 32px;
+        align-items: center;
+    }
+
+    .AboutSectionImage {
+        min-width: 640px;
+    }
+
+    .AboutSectionTitle {
+        font-size: 60px;
+    }
+
+    .AboutSectionDescription {
+        font-size: 20px;
+    }
+}
