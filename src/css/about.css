@@ -1,113 +1,104 @@
-.AboutSection {
+.about-section {
     padding: 64px 16px;
     background-color: #060307;
     color: #ffffff;
-
 }
 
-.AboutSectionContent {
+.about-section-content {
     display: flex;
     flex-direction: column;
     gap: 48px;
 }
 
-.AboutSectionImage {
+.about-section-image {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 16px;
 }
 
-.AboutSectionIcon {
+.about-section-icon {
     width: 64px;
     height: 64px;
     flex-shrink: 0;
-        fill: currentColor;
+    fill: currentColor;
 }
 
-.AboutSectionTitle {
-
+.about-section-title {
     font-size: 44px;
     font-weight: 700;
-   
     font-family: "Epilogue", sans-serif;
-    line-height: 1.2; 
+    line-height: 1.2;
     letter-spacing: -0.01em;
 }
 
-.AboutSectionText {
+.about-section-text {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.AboutSectionIcon {
-    flex-shrink: 0;
-    fill: currentColor;
-}
-
-.AboutSectionDescription {
+.about-section-description {
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 400;
     font-size: 18px;
-   line-height: 1.5;
+    line-height: 1.5;
     letter-spacing: 0em;
 }
 
-
-
 /* Tablet styles */
 @media screen and (min-width: 768px) {
-    .AboutSection {
+    .about-section {
         padding: 64px 32px;
     }
 
-    .AboutSectionContent {
-      gap: 24px;
+    .about-section-content {
+        gap: 24px;
     }
-        .AboutSectionText {
-            gap: 24px;
-        }
 
-     .AboutSectionIcon {
-     width: 80px;
-    height: 80px;
-    
-                }
-    .AboutSectionImage {
+    .about-section-text {
+        gap: 24px;
+    }
+
+    .about-section-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .about-section-image {
         min-width: 704px;
     }
 
-    .AboutSectionTitle {
+    .about-section-title {
         font-size: 28px;
     }
 
-    .AboutSectionDescription {
+    .about-section-description {
         font-size: 20px;
     }
 }
 
 /* Desktop styles */
 @media screen and (min-width: 1280px) {
-    .AboutSection {
+    .about-section {
         padding: 112px 64px;
     }
 
-    .AboutSectionContent {
+    .about-section-content {
         flex-direction: row;
         gap: 32px;
         align-items: center;
     }
 
-    .AboutSectionImage {
+    .about-section-image {
         min-width: 640px;
     }
 
-    .AboutSectionTitle {
+    .about-section-title {
         font-size: 60px;
     }
 
-    .AboutSectionDescription {
+    .about-section-description {
         font-size: 20px;
     }
 }
