@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.logo {
+  fill: #764191;
+}
+.close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  cursor: pointer;
+
+  fill: #fbfbfb;
+  background-color: transparent;
+
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 64px;
+}
+.mobile-menu-header {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mobile-menu {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #060307;
+
+  z-index: 1000;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
+
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  pointer-events: none;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease,
+    visibility 0.3s ease;
+
+}
+
+.mobile-menu.is-open {
+  transform: translateY(0);
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+.is-hidden {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.mobile-nav-button {
+  font: 500 26px / 1.5 'IBM Plex Sans', sans-serif;
+  color: #fff;
+}
+
+.mobile-menu .container {
+  max-width: 375px;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
