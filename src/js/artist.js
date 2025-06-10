@@ -32,7 +32,7 @@ function renderArtists(artists) {
         <li class="artist-card" data-id="${artist._id || ''}">
           <img 
             class="artist-card-img" 
-            src="${artist.strArtistThumb || './images/placeholder.jpg'}" 
+            src="${artist.strArtistThumb || './img/placeholderartist.jpg'}" 
             alt="${artist.strArtist || 'Unknown Artist'}" 
           />
           <div class="artist-card-content">
