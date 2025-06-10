@@ -1,4 +1,4 @@
-import { fetchFeedbacks } from './sound-wave-api';
+/*import { fetchFeedbacks } from './sound-wave-api';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -13,7 +13,7 @@ return `<i class="fa-star ${
 }"></i>`;
 }).join('');*/
 
-return `
+/*return `
 <div class="swiper-slide">
     <div class="feedback-card">
     <div class="rating" data-rating="${roundedRating}">
@@ -68,4 +68,63 @@ breakpoints: {
 });
 }
 
-initFeedbackSection();
+initFeedbackSection();*/
+
+import axios from 'axios';
+
+const BASE_URL = 'https://sound-wave.b.goit.study/api';
+
+export async function fetchAllFeedbacks() {
+  try {
+    const response = await axios.get(`${BASE_URL}/feedbacks`);
+    return response.data.results || []; // масив фідбеків
+  } catch (error) {
+    console.error('API Error:', error);
+    return [];
+  }
+}
+const feedbacks = await fetchAllFeedbacks();
+
+// Динамічно створюємо слайди по одному фідбеку
+const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+
+
+const allFeedbacks = await fetchAllFeedbacks();
+
+// Показати перший фідбек
+console.log(allFeedbacks[0]);
+
+// Пройтись по одному:
+for (const feedback of allFeedbacks) {
+  console.log('Один фідбек:', feedback);
+  // можеш показувати в UI по черзі, вставляти в слайдер і т.д.
+}
+
+
+
+feedbacks.forEach(feedback => {
+  const slide = document.createElement('div');
+  slide.classList.add('swiper-slide');
+    slide.innerHTML = `
+  <div class="swiper-slide">
+    <div class="feedback-card">
+    <div class="rating" data-rating="${feedback.rating}">
+    <div class="rating__stars">
+      <span class="rating__star"></span>
+      <span class="rating__star"></span>
+      <span class="rating__star"></span>
+      <span class="rating__star"></span>
+      <span class="rating__star"></span>
+    </div>
+    <div class="rating__overlay"></div>
+  </div>
+    <p class="feedback-text">"${feedback.comment}"</p>
+    <p class="feedback-author">${feedback.author}</p>
+    </div>
+</div>
+  `;
+  swiperWrapper.appendChild(slide);
+});
+
+// Ініціалізуємо слайдер після додав
