@@ -46,7 +46,7 @@ function renderArtists(artists) {
                 : 'No description available.'
               }
             </p>
-<button type="button" class="artist-card-btn" #artist-card-btn>
+<button type="button" class="artist-card-btn" id ='data-artist-open'>
   Learn More
   <svg class="artist-card-btn-icon" width="8" height="14">
     <use href="#icon-triangle-white"></use>
