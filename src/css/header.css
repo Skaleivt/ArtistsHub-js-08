@@ -44,6 +44,13 @@ section {
   background-color: transparent;
 }
 
+@media screen and (min-width: 768px) {
+  .another-color {
+    fill: #fbfbfb;
+    /* білий для більших екранів */
+  }
+}
+
 @media screen and (min-width: 768px), screen and (min-width: 1440px) {
   .container {
     padding: 0 64px;
@@ -53,8 +60,8 @@ section {
     scroll-margin-top: 72px;
   }
 
-  .logo {
-    fill: #fbfbfb;
+  .another-color {
+    fill: #fbfbfb !important;
   }
   .burger-icon {
     display: none;
