@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Section</title>
+
+    <!-- Swiper styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+<!--для зірочок--> 
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="./css/feedbacks.css" />
+</head>
+
+<body>
+    
+    <section class="feedback-section">
+        <div class="swiper feedback-swiper">
+            <!-- Слайди -->
+            <div class="swiper-wrapper" id="feedback-list">
+                <!-- Слайди вставляються через JS -->
+            </div>
+    
+            <!-- Стрілки -->
+            <div class="swiper-button-prev">
+                <svg class="btn-prev" width="24" height="24">
+                 <use href="./img/symbol-defs.svg#icon-btn-prev"></use>
+                </svg>
+            </div>
+            <div class="swiper-button-next">
+                <svg class="btn-next" width="24" height="24">
+                 <use href="./img/symbol-defs.svg#icon-btn-next"></use>
+                </svg>
+            </div>
+    
+            <!-- Пагінація (знаходиться ПОЗА wrapper — це правильно) -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

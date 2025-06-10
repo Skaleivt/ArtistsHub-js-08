@@ -1,0 +1,266 @@
+.feedback-section {
+background-color: #060307;
+color: white;
+padding: 64px 16px;
+}
+
+.feedback-swiper {
+width: 100%;
+max-width: 100%;
+position: relative;
+}
+
+.feedback-section .swiper-wrapper {
+display: flex;
+align-items: center;
+}
+
+.feedback-section .swiper-slide {
+display: flex;
+justify-content: center;
+}
+
+.feedback-card {
+width: 100%;
+font-family: Epilogue;
+font-size: 18px;
+font-weight: 700;
+max-width: 288px;
+background: #060307;
+box-sizing: border-box;
+text-align: center;
+}
+
+/* Зірочки 
+.stars {
+color: #fff;
+margin-bottom: 32px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 4px;
+}
+
+.stars .fa-star {
+max-width: 20px;
+
+}
+
+.stars .fa-star.active {
+color: #a460d6;
+}*/
+.rating {
+    position: relative;
+    display: inline-block;
+    width: max-content;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.rating__stars,
+.rating__overlay {
+    display: flex;
+    gap: 4px;
+}
+
+/* Сірі зірки (фон) */
+.rating__star::before {
+    content: '★';
+    color: #ccc;
+    font-size: 24px;
+    display: block;
+}
+
+/* Жовті зірки поверх */
+.rating__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    height: 100%;
+}
+
+.rating__overlay span::before {
+    content: '★';
+    color: #ffc107;
+    font-size: 24px;
+    display: block; }
+
+/* Цитата */
+.feedback-text {
+font-family: 'Epilogue', sans-serif;
+font-size: 18px;
+font-weight: 700;
+line-height: 1.4;
+letter-spacing: -0.01em;
+margin-bottom: 32px;
+max-width: 288px;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+overflow-wrap: break-word;
+
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 4;
+overflow: hidden;
+}
+
+/* Автор */
+.feedback-author {
+font-family: IBM Plex Sans;
+font-size: 18px;
+font-weight: 600;
+text-align: center;
+ }
+
+/* Кнопки */
+.swiper-button-next,
+.swiper-button-prev {
+width: 48px;
+height: 48px;
+box-sizing: border-box;
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 8px;
+padding: 12px;
+color: white;
+transform: translateY(-50%);
+z-index: 10;
+pointer-events: auto;
+cursor: pointer;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+    /* колір стрілок */
+    width: 48px;
+    /* розмір стрілок */
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #ffffff;
+}
+
+/* Можна змінити позицію стрілок 
+.swiper-button-next {
+    right: 16px;
+}
+
+.swiper-button-prev {
+    left: 16px;
+}*/
+
+/* Приклад заміни іконок (за бажанням) 
+.swiper-button-next::after,
+.swiper-button-prev::after {
+}*/
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none;
+    /* Сховати стрілки Swiper'а */
+    content: none;
+}
+
+.swiper-button-next
+.swiper-button-prev {
+    display: none;
+}
+/* Пагінація */
+.swiper-pagination {
+padding-top: 10px;
+padding-bottom: 10px;
+position: static !important;
+display: flex;
+justify-content: center;
+gap: 9px;
+z-index: 2;
+margin-top: 16px;
+}
+
+.swiper-pagination-bullet {
+width: 8px;
+height: 8px;
+background-color: #fff;
+opacity: 0.2;
+transition: opacity 0.3s ease;
+border-radius: 50%;
+}
+
+.swiper-pagination-bullet-active {
+opacity: 1;
+}
+
+/* Мобілка */
+@media (max-width: 767px) {
+.feedback-section {
+    padding: 40px 16px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    display: none !important;
+}
+}
+
+/* Планшет */
+@media (min-width: 768px) {
+.feedback-section {
+    padding: 64px 32px;
+}
+
+.feedback-card {
+    padding: 40px;
+}
+
+.stars .fa-star {
+    font-size: 20px;
+}
+
+.feedback-text {
+    font-size: 18px;
+    max-width: 640px;
+}
+
+.feedback-author {
+    font-size: 16px;
+}
+}
+
+/* Десктоп */
+@media (min-width: 1440px) {
+.feedback-section {
+    padding: 112px 64px;
+}
+
+.feedback-card {
+    max-width: 800px;
+    padding: 64px;
+    
+}
+
+.stars .fa-star {
+    font-size: 20px;
+}
+
+.feedback-text {
+    font-size: 20px;
+    max-width: 866px;
+    
+}
+
+.feedback-author {
+    font-size: 18px;
+}
+}
+.btn-prev {
+    width: 24px;
+    height: 24px;
+}
