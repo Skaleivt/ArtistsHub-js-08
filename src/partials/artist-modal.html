@@ -1,29 +1,21 @@
-<div id="artist-modal" class="artist-modal">
-  <div class="artist-backdrop" id="artist-backdrop"></div>
+<div id="artist-modal" class="artist-backdrop">
   <div class="container artist-modal-container" role="dialog" aria-modal="true">
-    <h1 id="artist-name" class="artist-modal-header"></h1>
     <button class="artist-modal-close" id="artist-modal-close">
-      <svg width="16" height="16" viewBox="0 0 16 16" fiill="none">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <use href="/ArtistsHub-js-08/src/img/symbol-defs.svg#close-icon"></use>
       </svg>
     </button>
+
+    <h1 id="artist-name" class="artist-modal-header"></h1>
 
     <div class="artist-modal-content">
       <img id="artist-image" alt="Artist image" class="artist-photo" />
       <div class="artist-info">
         <ul class="artist-meta">
-          <li class="artist-meta-item">
-            <strong>Years active:</strong> <span id="artist-years"></span>
-          </li>
-          <li class="artist-meta-item">
-            <strong>Sex:</strong> <span id="artist-sex"></span>
-          </li>
-          <li class="artist-meta-item">
-            <strong>Members:</strong> <span id="artist-members"></span>
-          </li>
-          <li class="artist-meta-item">
-            <strong>Country:</strong> <span id="artist-country"></span>
-          </li>
+          <li class="artist-meta-item"><strong>Years active:</strong> <span id="artist-years"></span></li>
+          <li class="artist-meta-item"><strong>Sex:</strong> <span id="artist-sex"></span></li>
+          <li class="artist-meta-item"><strong>Members:</strong> <span id="artist-members"></span></li>
+          <li class="artist-meta-item"><strong>Country:</strong> <span id="artist-country"></span></li>
         </ul>
         <p id="artist-bio" class="artist-bio"></p>
         <div id="artist-genres" class="artist-genres"></div>
