@@ -53,6 +53,8 @@
   transition: transform 0.3s ease-in-out, opacity 0.3s ease,
     visibility 0.3s ease;
 
+  background: linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, #060307 100%);
+
 }
 
 .mobile-menu.is-open {
