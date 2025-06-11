@@ -66,46 +66,91 @@ export async function renderArtistModal(artistPromise) {
     }
 
     const albumsContainer = document.getElementById('albums-container');
-    albumsContainer.innerHTML = '';
-    if (Array.isArray(artist.tracksList) && artist.tracksList.length > 0) {
-      const tracksByAlbum = {};
-      artist.tracksList.forEach(track => {
-        const album = track.strAlbum || 'Unknown Album';
-        if (!tracksByAlbum[album]) tracksByAlbum[album] = [];
-        tracksByAlbum[album].push(track);
-      });
+albumsContainer.innerHTML = '';
 
-      Object.entries(tracksByAlbum).forEach(([albumName, tracks]) => {
-        const albumDiv = document.createElement('div');
-        albumDiv.className = 'album-item';
-        albumDiv.innerHTML = `
-          <h3>${albumName}</h3>
-          <ul>
-            <li><strong>Track — Duration</strong></li>
-            ${tracks
-              .map(track => {
-                const name = track.strTrackName || track.strTrack || 'Unknown track';
-                const duration = track.intDuration || 'Unknown length';
-                const youtube = track.strMusicVid
-                  ? `<a href="${track.strMusicVid}" target="_blank" rel="noopener noreferrer">
-                      <svg class="youtube-icon" width="16" height="16">
-                        <use href="/img/symbol-defs.svg#icon-youtube"></use>
-                      </svg>
-                    </a>`
-                  : '';
-                return `<li>${name} — ${duration} ${youtube}</li>`;
-              })
-              .join('')}
-          </ul>
+if (Array.isArray(artist.tracksList) && artist.tracksList.length > 0) {
+  const tracksByAlbum = {};
+
+  artist.tracksList.forEach(track => {
+    const album = track.strAlbum || 'Unknown Album';
+    if (!tracksByAlbum[album]) tracksByAlbum[album] = [];
+    tracksByAlbum[album].push(track);
+  });
+
+  Object.entries(tracksByAlbum).forEach(([albumName, tracks]) => {
+    const albumDiv = document.createElement('div');
+    albumDiv.className = 'album';
+
+    const title = document.createElement('h2');
+    title.className = 'album-title';
+    title.textContent = albumName;
+
+    const trackListContainer = document.createElement('div');
+    trackListContainer.className = 'track-list-container';
+
+    const header = document.createElement('div');
+    header.className = 'track-header';
+    header.innerHTML = `
+      <span>Track</span>
+      <span>Time</span>
+      <span>Link</span>
+    `;
+
+    const trackList = document.createElement('ul');
+    trackList.className = 'track-list';
+
+    tracks.forEach(track => {
+      const name = track.strTrackName || track.strTrack || 'Unknown track';
+      const duration = track.intDuration || 'Unknown length';
+      function formatDuration(ms) {
+        const totalSeconds = Math.floor(Number(ms) / 1000);
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+      }
+      const rawDuration = track.intDuration;
+      const formattedDuration = rawDuration ? formatDuration(rawDuration) : 'Unknown length';
+      let youtubeLink = '';
+      if (track.strMusicVid) {
+        youtubeLink = `
+          <a href="${track.strMusicVid}" class="track-link" target="_blank" rel="noopener noreferrer">
+            <svg class="youtube-link" width="24" height="25" viewBox="0 0 24 25" fill="none">
+              <use href="/img/symbol-defs.svg#icon-Youtube"></use>
+            </svg>
+          </a>
         `;
-        albumsContainer.appendChild(albumDiv);
-      });
-    } else {
-      const empty = document.createElement('p');
-      empty.className = 'no-albums';
-      empty.textContent = 'No tracks available.';
-      albumsContainer.appendChild(empty);
-    }
+      }
+
+      const li = document.createElement('li');
+      li.className = 'track-item';
+
+      li.innerHTML = `
+        <span class="track-name">${name}</span>
+        <span class="track-time">${formattedDuration}</span>
+        <a href="${youtubeLink}" class="track-link" target="_blank" rel="noopener noreferrer">
+          <svg class="youtube-link" width="24" height="25" viewBox="0 0 24 25" fill="none">
+            <use href="./symbol-defs.svg#icon-Youtube"></use>
+          </svg>
+        </a>
+      `;
+
+      trackList.appendChild(li);
+    });
+
+    trackListContainer.appendChild(header);
+    trackListContainer.appendChild(trackList);
+
+    albumDiv.appendChild(title);
+    albumDiv.appendChild(trackListContainer);
+
+    albumsContainer.appendChild(albumDiv);
+  });
+} else {
+  const empty = document.createElement('p');
+  empty.className = 'no-albums';
+  empty.textContent = 'No tracks available.';
+  albumsContainer.appendChild(empty);
+}
 
     openModal();
   } catch (err) {
