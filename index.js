@@ -1,25 +1,25 @@
-import{a as m}from"./assets/vendor-BvLu_gPC.js";(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))c(s);new MutationObserver(s=>{for(const o of s)if(o.type==="childList")for(const a of o.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&c(a)}).observe(document,{childList:!0,subtree:!0});function t(s){const o={};return s.integrity&&(o.integrity=s.integrity),s.referrerPolicy&&(o.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?o.credentials="include":s.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function c(s){if(s.ep)return;s.ep=!0;const o=t(s);fetch(s.href,o)}})();const r={openBtn:document.querySelector("[data-menu-open]"),closeBtn:document.querySelector("[data-menu-close]"),mobileMenu:document.querySelector("[data-menu]")};r.openBtn.addEventListener("click",()=>{r.mobileMenu.classList.remove("is-hidden"),r.mobileMenu.classList.add("is-open"),document.body.style.overflow="hidden"});r.closeBtn.addEventListener("click",()=>{r.mobileMenu.classList.remove("is-open"),r.mobileMenu.classList.add("is-hidden"),document.body.style.overflow=""});const i=document.getElementById("artist-modal"),p=document.querySelectorAll("[data-artist-open]"),f=document.getElementById("artist-modal-close");p.forEach(e=>{e.addEventListener("click",()=>{i.classList.add("is-open"),document.body.style.overflow="hidden"})});f.addEventListener("click",()=>{l()});i.addEventListener("click",e=>{e.target===i&&l()});document.addEventListener("keydown",e=>{e.key==="Escape"&&i.classList.contains("is-open")&&l()});function l(){i.classList.remove("is-open"),document.body.style.overflow=""}const g="https://sound-wave.b.goit.study/api";async function y(e=1,n=8){try{const t=await m.get(`${g}/artists`,{params:{page:e,limit:n}});return console.log("Full API response:",t),console.log("API Response:",t.data),t.data}catch(t){return console.error("API Error:",t),{}}}document.querySelector("#artists");const h=document.querySelector(".artists-list"),v=document.querySelector("#load-more-btn");let d=1;const L=8;async function u(){try{const e=await y(d,L);console.log("Artists Data:",e),console.log("Results:",e.artists),b(e.artists)}catch(e){console.error("Failed to load artists:",e)}}function b(e){console.log("Rendering Artists:",e);const n=e.map(t=>{const c=t.genres&&t.genres.length>0?t.genres.map(s=>`<span class="artist-card-genre">${s}</span>`).join(""):'<span class="artist-card-genre">Unknown</span>';return`
-        <li class="artist-card" data-id="${t._id||""}">
+import{a as p}from"./assets/vendor-BvLu_gPC.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const c of o.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&a(c)}).observe(document,{childList:!0,subtree:!0});function s(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function a(e){if(e.ep)return;e.ep=!0;const o=s(e);fetch(e.href,o)}})();const n={openBtn:document.querySelector("[data-menu-open]"),closeBtn:document.querySelector("[data-menu-close]"),mobileMenu:document.querySelector("[data-menu]")};n.openBtn.addEventListener("click",()=>{n.mobileMenu.classList.remove("is-hidden"),n.mobileMenu.classList.add("is-open"),document.body.style.overflow="hidden"});n.closeBtn.addEventListener("click",()=>{n.mobileMenu.classList.remove("is-open"),n.mobileMenu.classList.add("is-hidden"),document.body.style.overflow=""});const i=document.getElementById("artist-modal"),y=document.querySelectorAll("[data-artist-open]"),f=document.getElementById("artist-modal-close");y.forEach(t=>{t.addEventListener("click",()=>{i.classList.add("is-open"),document.body.style.overflow="hidden"})});f.addEventListener("click",()=>{d()});i.addEventListener("click",t=>{t.target===i&&d()});document.addEventListener("keydown",t=>{t.key==="Escape"&&i.classList.contains("is-open")&&d()});function d(){i.classList.remove("is-open"),document.body.style.overflow=""}const g="https://sound-wave.b.goit.study/api";async function h(t=1,r=8){try{return(await p.get(`${g}/artists`,{params:{page:t,limit:r}})).data}catch{return iziToast.error({message:"Sorry, there is no more artists. Please try later!",...optionIzi}),{}}}document.querySelector("#artists");const v=document.querySelector(".artists-list"),l=document.querySelector("#load-more-btn");document.querySelector("#no-more-artists-msg");let u=1;const b=8;async function m(){try{const t=await h(u,b);if(t.artists.length===0){l.style.display="none",iziToast.info({title:"Notice",message:"No more artists to load",position:"bottomRight",timeout:3e3});return}L(t.artists)}catch(t){console.error("Failed to load artists:",t)}}function L(t){console.log("Rendering Artists:",t);const r=t.map(s=>{const a=s.genres&&s.genres.length>0?s.genres.map(e=>`<span class="artist-card-genre">${e}</span>`).join(""):'<span class="artist-card-genre">Unknown</span>';return`
+        <li class="artist-card" data-id="${s._id||""}">
           <img 
             class="artist-card-img" 
-            src="${t.strArtistThumb||"./images/placeholder.jpg"}" 
-            alt="${t.strArtist||"Unknown Artist"}" 
+            src="${s.strArtistThumb||"./img/placeholderartist.jpg"}" 
+            alt="${s.strArtist||"Unknown Artist"}" 
           />
           <div class="artist-card-content">
             <div class="artist-card-genres">
-              ${c}
+              ${a}
             </div>
-            <h3 class="artist-card-name">${t.strArtist||"Unknown Artist"}</h3>
+            <h3 class="artist-card-name">${s.strArtist||"Unknown Artist"}</h3>
             <p class="artist-card-description">
-              ${t.strBiographyEN?t.strBiographyEN:"No description available."}
+              ${s.strBiographyEN?s.strBiographyEN:"No description available."}
             </p>
-            <button type="button" class="artist-card-btn">
-              Learn More
-              <svg class="artist-card-btn-icon" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;">
-                <path d="M0 14L8 7L0 0V14Z"/>
-              </svg>
-            </button>
+<button type="button" class="artist-card-btn" data-artist-open>
+  Learn More
+  <svg class="artist-card-btn-icon" width="8" height="14">
+    <use href="#icon-triangle-white"></use>
+  </svg>
+</button>
           </div>
         </li>
-      `}).join("");h.insertAdjacentHTML("beforeend",n)}v.addEventListener("click",async()=>{d+=1,await u()});u();
+      `}).join("");v.insertAdjacentHTML("beforeend",r)}l.addEventListener("click",async()=>{u+=1,await m()});m();
 //# sourceMappingURL=index.js.map
