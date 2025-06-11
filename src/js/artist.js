@@ -4,6 +4,7 @@ import { getArtists } from './sound-wave-api.js';
 const artistsSection = document.querySelector('#artists');
 const artistsList = document.querySelector('.artists-list');
 const loadMoreButton = document.querySelector('#load-more-btn');
+const noMoreArtistsMsg = document.querySelector('#no-more-artists-msg');
 
 let page = 1;
 const limit = 8;
@@ -11,11 +12,30 @@ const limit = 8;
 async function loadArtists() {
   try {
     const data = await getArtists(page, limit);
+
+    if (data.artists.length === 0) {
+    
+      loadMoreButton.style.display = 'none';
+    
+      iziToast.info({
+        title: 'Notice',
+        message: 'No more artists to load',
+        position: 'bottomRight',
+        messageColor: '#fff',
+        messageSize: '16px',
+        backgroundColor: " #EF4040",
+        timeout: 3000,
+      });      
+    
+      return;
+    }
+
     renderArtists(data.artists);
   } catch (error) {
     console.error('Failed to load artists:', error);
   }
 }
+
 
 function renderArtists(artists) {
   const filtered = artists.filter(artist => artist._id);
@@ -30,7 +50,7 @@ function renderArtists(artists) {
         <li class="artist-card" data-id="${artist._id}">
           <img 
             class="artist-card-img" 
-            src="${artist.strArtistThumb || './images/placeholder.jpg'}" 
+            src="${artist.strArtistThumb || './img/placeholderartist.jpg'}" 
             alt="${artist.strArtist || 'Unknown Artist'}" 
           />
           <div class="artist-card-content">
@@ -39,17 +59,14 @@ function renderArtists(artists) {
             <p class="artist-card-description">
               ${artist.strBiographyEN || 'No description available.'}
             </p>
-            <button 
-              type="button" 
-              class="artist-card-btn" 
-              data-artist-open 
-              data-artist-id="${artist._id}"
-            >
-              Learn More
-              <svg class="artist-card-btn-icon" width="8" height="14" viewBox="0 0 8 14" fill="none">
-                <path d="M0 14L8 7L0 0V14Z"/>
-              </svg>
-            </button>
+
+<button type="button" class="artist-card-btn" data-artist-open>
+  Learn More
+  <svg class="artist-card-btn-icon" width="8" height="14">
+    <use href="#icon-triangle-white"></use>
+  </svg>
+</button>
+
           </div>
         </li>
       `;

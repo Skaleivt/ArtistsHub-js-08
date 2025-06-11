@@ -65,9 +65,9 @@
         height: 80px;
     }
 
-    .about-section-image {
+    /* .about-section-image {
         min-width: 704px;
-    }
+    } */
 
     .about-section-title {
         font-size: 28px;
@@ -79,7 +79,7 @@
 }
 
 /* Desktop styles */
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
     .about-section {
         padding: 112px 64px;
     }
