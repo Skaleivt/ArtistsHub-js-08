@@ -3,6 +3,7 @@ import { getArtists } from './sound-wave-api.js';
 const artistsSection = document.querySelector('#artists');
 const artistsList = document.querySelector('.artists-list');
 const loadMoreButton = document.querySelector('#load-more-btn');
+const noMoreArtistsMsg = document.querySelector('#no-more-artists-msg');
 
 let page = 1;
 const limit = 8;
@@ -10,14 +11,26 @@ const limit = 8;
 async function loadArtists() {
   try {
     const data = await getArtists(page, limit);
-    console.log('Artists Data:', data);
-    console.log('Results:', data.artists);
+    if (data.artists.length === 0) {
+      // if (page === 2) {
+      loadMoreButton.style.display = 'none';
+    
+      iziToast.info({
+        title: 'Notice',
+        message: 'No more artists to load',
+        position: 'bottomRight',
+        timeout: 3000,
+      });      
+    
+      return;
+    }
 
     renderArtists(data.artists);
   } catch (error) {
     console.error('Failed to load artists:', error);
   }
 }
+
 
 function renderArtists(artists) {
   console.log('Rendering Artists:', artists);
