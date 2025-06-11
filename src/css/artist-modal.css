@@ -264,9 +264,13 @@ body {
         max-width: 100%;
         height: 564px;
         overflow-y: auto;
-        scrollbar-width: none;
+        scrollbar-width: thin;
         -ms-overflow-style: none;
     }
+
+        .album::-webkit-scrollbar-track {
+            background: transparent;
+        }
 
     .album-title {
         margin-bottom: 16px;
@@ -310,7 +314,7 @@ body {
       
     .track-item {
         display: grid;
-        grid-template-columns: 1fr 60px 40px;
+        grid-template-columns: 1fr 60px 43px;
         border-radius: 8px;
         padding: 4px 0px 4px 12px;
         height: 32px;
@@ -332,16 +336,18 @@ body {
     .track-link {
         display: flex;
         align-items: center;
-        justify-self: center;
         width: 24px;
         height: 25px;
     }
 
-    .track-link svg {
+    .youtube-link {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
         width: 100%;
         height: 100%;
         object-fit: contain;
-        fill: #fff
+        fill: #fff;
     }
 
 /* Loader */

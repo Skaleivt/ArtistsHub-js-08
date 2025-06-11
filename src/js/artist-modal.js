@@ -128,10 +128,10 @@ if (Array.isArray(artist.tracksList) && artist.tracksList.length > 0) {
           youtubeUrl
             ? `<a href="${youtubeUrl}" class="track-link" target="_blank" rel="noopener noreferrer">
                  <svg class="youtube-link" width="24" height="25">
-                   <use href="./symbol-defs.svg#icon-Youtube"></use>
+                   <use href="../img/symbol-defs.svg#icon-youtube"></use>
                  </svg>
                </a>`
-            : '<span class="track-link">—</span>'
+            : '<span class="track-link"> </span>'
         }
       `;
     
