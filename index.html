@@ -21,14 +21,14 @@
     />
     <script type="module" crossorigin src="/ArtistsHub-js-08/index.js"></script>
     <link rel="modulepreload" crossorigin href="/ArtistsHub-js-08/assets/vendor-BvLu_gPC.js">
-    <link rel="stylesheet" crossorigin href="/ArtistsHub-js-08/assets/index-Blbx8YDe.css">
+    <link rel="stylesheet" crossorigin href="/ArtistsHub-js-08/assets/index-RDqcou7V.css">
   </head>
   <body>
     <section class="header">
   <div class="container header-container">
     <a class="header-logo" href="/">
       <svg class="logo another-color" width="119" height="51">
-        <use href="/ArtistsHub-js-08/assets/symbol-defs-CNQoB_bu.svg#icon-Company-Logo"></use>
+        <use href="/ArtistsHub-js-08/assets/symbol-defs-C1a9PxVa.svg#icon-Company-Logo"></use>
       </svg>
     </a>
     <nav class="page-nav">
@@ -46,7 +46,7 @@
     </nav>
     <button type="button" alt="menu" class="burger" data-menu-open>
       <svg class="burger-icon" width="24" height="24">
-        <use href="/ArtistsHub-js-08/assets/symbol-defs-CNQoB_bu.svg#icon-burger-menu"></use>
+        <use href="/ArtistsHub-js-08/assets/symbol-defs-C1a9PxVa.svg#icon-burger-menu"></use>
       </svg>
     </button>
   </div>
@@ -55,25 +55,25 @@
   <div class="container header-container">
     <a class="header-logo" href="/">
       <svg class="logo" width="119" height="51">
-        <use href="/ArtistsHub-js-08/assets/symbol-defs-CNQoB_bu.svg#icon-Company-Logo"></use>
+        <use href="/ArtistsHub-js-08/assets/symbol-defs-C1a9PxVa.svg#icon-Company-Logo"></use>
       </svg>
     </a>
     <button type="button" alt="close" class="close" data-menu-close>
       <svg class="icon-close" width="24" height="24">
-        <use href="/ArtistsHub-js-08/assets/symbol-defs-CNQoB_bu.svg#icon-close"></use>
+        <use href="/ArtistsHub-js-08/assets/symbol-defs-C1a9PxVa.svg#icon-close"></use>
       </svg>
     </button>
   </div>
   <nav class="mobile-nav">
     <ul class="mobile-nav-list">
       <li class="mobile-nav-list-item">
-        <a href="./artist.html#artists" class="mobile-nav-button">Artists</a>
+        <a href="/#artists" class="mobile-nav-button">Artists</a>
       </li>
       <li class="mobile-nav-list-item">
-        <a href="./about.html#aboutUs" class="mobile-nav-button">About Us</a>
+        <a href="/#aboutUs" class="mobile-nav-button">About Us</a>
       </li>
       <li class="mobile-nav-list-item">
-        <a href="./feedbacks.html#reviews" class="mobile-nav-button">Reviews</a>
+        <a href="/#reviews" class="mobile-nav-button">Reviews</a>
       </li>
     </ul>
   </nav>
@@ -81,9 +81,25 @@
 
 
 
-    <main>
-      
-      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <main>
+
+    <section class="section-hero hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Your Next Favorite Artist Today</h1>
+            <p class="hero-text">Dive into a world of music discoveries with ArtistsHub - your personal guide to the
+                boundless universe of sound.
+                Explore, filter, and learn about your favorite artists all in one place.</p>
+            <a href="#artists" class="hero-button">Explore Artists
+                <svg class="hero-icon" width="24" height="24">
+                    <use href="/ArtistsHub-js-08/assets/symbol-defs-C1a9PxVa.svg#icon-transparent-triangle"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="background-wrapper"></div>
+    </div>
+</section>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="icon-triangle-white" viewBox="0 0 17 32">
     <path d="m0 31.878 17.067-14.933L0 2.012v29.867z" fill="currentColor" />
   </symbol>
@@ -109,7 +125,7 @@
       <button type="button" id="load-more-btn" class="load-more-btn">
         Load More
         <svg width="14" height="14" style="margin-left: 8px;">
-          <use href="/ArtistsHub-js-08/assets/symbol-defs-CNQoB_bu.svg#icon-arrow-down"></use>
+          <use href="/ArtistsHub-js-08/assets/symbol-defs-C1a9PxVa.svg#icon-arrow-down"></use>
         </svg>
       </button>
     </div>
@@ -121,11 +137,11 @@
 
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-      <div id="artist-modal" class="artist-backdrop">
-  <div class="container artist-modal-container" role="dialog" aria-modal="true">
+    <div id="artist-modal" class="artist-backdrop">
+  <div class="artist-modal-container" role="dialog" aria-modal="true">
     <button class="artist-modal-close" id="artist-modal-close">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <use href="/ArtistsHub-js-08/src/img/symbol-defs.svg#close-icon"></use>
+      <svg width="32" height="32" viewBox="0 0 32 32">
+        <use href="/ArtistsHub-js-08/assets/symbol-defs-C1a9PxVa.svg#icon-close"></use>
       </svg>
     </button>
 
@@ -135,10 +151,18 @@
       <img id="artist-image" alt="Artist image" class="artist-photo" />
       <div class="artist-info">
         <ul class="artist-meta">
-          <li class="artist-meta-item"><strong>Years active:</strong> <span id="artist-years"></span></li>
-          <li class="artist-meta-item"><strong>Sex:</strong> <span id="artist-sex"></span></li>
-          <li class="artist-meta-item"><strong>Members:</strong> <span id="artist-members"></span></li>
-          <li class="artist-meta-item"><strong>Country:</strong> <span id="artist-country"></span></li>
+          <li class="artist-meta-item">
+            <strong>Years active:</strong> <span id="artist-years"></span>
+          </li>
+          <li class="artist-meta-item">
+            <strong>Sex:</strong> <span id="artist-sex"></span>
+          </li>
+          <li class="artist-meta-item">
+            <strong>Members:</strong> <span id="artist-members"></span>
+          </li>
+          <li class="artist-meta-item">
+            <strong>Country:</strong> <span id="artist-country"></span>
+          </li>
         </ul>
         <p id="artist-bio" class="artist-bio"></p>
         <div id="artist-genres" class="artist-genres"></div>
@@ -149,7 +173,9 @@
     <div id="albums-container" class="albums-container"></div>
   </div>
 </div>
-      <section class="about-section" id="aboutUs">
+<div id="modal-loader" class="modal-loader hidden">Loading...</div>
+
+    <section class="about-section" id="aboutUs">
   <div class="container">
     <div class="about-section-content">
       <picture>
@@ -176,7 +202,7 @@
 
       <div class="about-section-text">
         <svg class="about-section-icon" aria-hidden="true">
-          <use href="/ArtistsHub-js-08/assets/symbol-defs-CNQoB_bu.svg#icon-logo-icon" />
+          <use href="/ArtistsHub-js-08/assets/symbol-defs-C1a9PxVa.svg#icon-logo-icon" />
         </svg>
         <h2 class="about-section-title">About ArtistsHub</h2>
         <p class="about-section-description">
@@ -189,10 +215,31 @@
   </div>
 </section>
 
-      
-    </main>
+    <section class="feedback-section" id="reviews">
+  <div class="container swiper feedback-swiper">
+    <div class="swiper-wrapper" id="feedback-list"></div>
 
-    <footer class="footer">
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-prev">
+      <svg class="icon-swiper-button" width="24" height="24">
+        <use href="/ArtistsHub-js-08/assets/symbol-defs-C1a9PxVa.svg#icon-btn-prev"></use>
+      </svg>
+    </div>
+    <div class="swiper-button-next">
+      <svg class="icon-swiper-button" width="24" height="24">
+        <use href="/ArtistsHub-js-08/assets/symbol-defs-C1a9PxVa.svg#icon-btn-next"></use>
+      </svg>
+    </div>
+    <div class="swiper-scrollbar"></div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  </main>
+
+  <footer class="footer">
   <div class="container">
     <div class="footer-content">
       <div class="footer-logo">
@@ -260,5 +307,6 @@
 </footer>
 
 
-  </body>
+</body>
+
 </html>
