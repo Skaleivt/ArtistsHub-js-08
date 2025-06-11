@@ -1,3 +1,4 @@
+import { renderArtistModal } from './artist-modal.js';
 import { getArtists } from './sound-wave-api.js';
 
 const artistsSection = document.querySelector('#artists');
@@ -10,9 +11,6 @@ const limit = 8;
 async function loadArtists() {
   try {
     const data = await getArtists(page, limit);
-    console.log('Artists Data:', data);
-    console.log('Results:', data.artists);
-
     renderArtists(data.artists);
   } catch (error) {
     console.error('Failed to load artists:', error);
@@ -20,35 +18,35 @@ async function loadArtists() {
 }
 
 function renderArtists(artists) {
-  console.log('Rendering Artists:', artists);
+  const filtered = artists.filter(artist => artist._id);
 
-  const markup = artists
+  const markup = filtered
     .map(artist => {
-      const genresMarkup = artist.genres && artist.genres.length > 0
+      const genresMarkup = artist.genres?.length
         ? artist.genres.map(genre => `<span class="artist-card-genre">${genre}</span>`).join('')
         : '<span class="artist-card-genre">Unknown</span>';
 
       return `
-        <li class="artist-card" data-id="${artist._id || ''}">
+        <li class="artist-card" data-id="${artist._id}">
           <img 
             class="artist-card-img" 
             src="${artist.strArtistThumb || './images/placeholder.jpg'}" 
             alt="${artist.strArtist || 'Unknown Artist'}" 
           />
           <div class="artist-card-content">
-            <div class="artist-card-genres">
-              ${genresMarkup}
-            </div>
+            <div class="artist-card-genres">${genresMarkup}</div>
             <h3 class="artist-card-name">${artist.strArtist || 'Unknown Artist'}</h3>
             <p class="artist-card-description">
-              ${artist.strBiographyEN 
-                ? artist.strBiographyEN 
-                : 'No description available.'
-              }
+              ${artist.strBiographyEN || 'No description available.'}
             </p>
-            <button type="button" class="artist-card-btn">
+            <button 
+              type="button" 
+              class="artist-card-btn" 
+              data-artist-open 
+              data-artist-id="${artist._id}"
+            >
               Learn More
-              <svg class="artist-card-btn-icon" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;">
+              <svg class="artist-card-btn-icon" width="8" height="14" viewBox="0 0 8 14" fill="none">
                 <path d="M0 14L8 7L0 0V14Z"/>
               </svg>
             </button>
@@ -59,9 +57,28 @@ function renderArtists(artists) {
     .join('');
 
   artistsList.insertAdjacentHTML('beforeend', markup);
+  attachModalListeners();
 }
-  
-  
+
+function attachModalListeners() {
+  const buttons = document.querySelectorAll('[data-artist-open]');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.artistId;
+      console.log('🔍 Clicked artist ID:', id);
+
+      if (!id) {
+        console.warn('Artist ID is missing — modal will not open.');
+        return;
+      }
+
+      const artistPromise = fetch(`https://sound-wave.b.goit.study/api/artists/${id}`).then(res =>
+        res.json()
+      );
+      renderArtistModal(artistPromise);
+    });
+  });
+}
 
 loadMoreButton.addEventListener('click', async () => {
   page += 1;

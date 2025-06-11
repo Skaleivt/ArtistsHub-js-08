@@ -195,3 +195,87 @@ body {
         border-radius: 6px;
         padding: 4px 10px;
     }
+
+    /* albums container */
+.albums-title {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.albums-container {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .albums-container {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+/* кожен альбом */
+.album-item {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #fff;
+}
+
+.album-item h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 4px;
+}
+
+.album-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.album-item li {
+  font-size: 14px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.album-item li:last-child {
+  border-bottom: none;
+}
+
+/* Loader */
+.modal-loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 16px 24px;
+  border-radius: 8px;
+  z-index: 1000;
+  text-align: center;
+}
+
+/* YouTube icon */
+.youtube-icon {
+  fill: red;
+  margin-left: 8px;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+.youtube-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Albums list heading */
+.album-item ul li:first-child {
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 4px;
+}
