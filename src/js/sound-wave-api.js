@@ -16,7 +16,11 @@ export async function getArtists(page = 1, limit = 8) {
   } catch (error) {
     iziToast.error({
       message: "Sorry, there is no more artists. Please try later!",
-      ...optionIzi
+      position: "topRight",
+      messageColor: '#fff',
+      messageSize: '16px',
+      backgroundColor: " #EF4040",
+      timeout: 3000,
     })
     return {};
   }

@@ -12,13 +12,16 @@ async function loadArtists() {
   try {
     const data = await getArtists(page, limit);
     if (data.artists.length === 0) {
-      // if (page === 2) {
+    
       loadMoreButton.style.display = 'none';
     
       iziToast.info({
         title: 'Notice',
         message: 'No more artists to load',
         position: 'bottomRight',
+        messageColor: '#fff',
+        messageSize: '16px',
+        backgroundColor: " #EF4040",
         timeout: 3000,
       });      
     
