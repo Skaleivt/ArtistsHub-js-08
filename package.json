@@ -18,11 +18,8 @@
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "css-star-rating": "^1.3.1",
-=======
     "axios": "^1.9.0",
->>>>>>> 447fe5fbeaded524b8f594daf82215eb3ab2c02c
+    "css-star-rating": "^1.3.1",
     "normalize.css": "^8.0.1",
     "raty": "^1.0.5",
     "swiper": "^11.2.8",

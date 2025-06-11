@@ -70,7 +70,7 @@ breakpoints: {
 
 initFeedbackSection();*/
 
-import axios from 'axios';
+/*import axios from 'axios';
 
 const BASE_URL = 'https://sound-wave.b.goit.study/api';
 
@@ -127,4 +127,106 @@ feedbacks.forEach(feedback => {
   swiperWrapper.appendChild(slide);
 });
 
-// Ініціалізуємо слайдер після додав
+// Ініціалізуємо слайдер після додав*/
+// import { fetchFeedbacks } from './sound-wave-api.js';
+// const swiper = document.querySelector('.swiper').swiper;
+
+
+// async function renderFeedback() {
+//   const feedbacks = await fetchFeedbacks();
+//   console.log(feedbacks);
+//   const wrapper = document.querySelector('#feedback-list');
+//   wrapper.innerHTML = '';
+  
+//   feedbacks.forEach(feedback => {
+//     const slide = document.createElement('div');
+//     slide.classList.add('swiper-slide');
+//     slide.innerHTML = `<div class="feedback-card">
+//         <div class="rating" data-rating="${feedback.rating}">
+//           <div class="rating__stars">
+//             <span class="rating__star"></span>
+//             <span class="rating__star"></span>
+//             <span class="rating__star"></span>
+//             <span class="rating__star"></span>
+//             <span class="rating__star"></span>
+//           </div>
+//           <div class="rating__overlay"></div>
+//         </div>
+//         <p class="feedback-text">${feedback.descr}</p>
+//         <h5 class="feedback-author" >${feedback.name}</h5>
+//       </div>`;
+//     wrapper.appendChild(slide);
+//   });
+//   swiper.update();
+// }
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const swiper = new Swiper('.feedback-swiper', {
+//     slidesPerView: 1, // показує тільки 1 слайд
+//     speed: 400,
+//     spaceBetween: 100,
+//     navigation: {
+//       nextEl: '.swiper-button-next',
+//       prevEl: '.swiper-button-prev',
+//     },
+//     pagination: {
+//       el: '.swiper-pagination',
+//       clickable: true,
+//     },
+//   });
+
+//   renderFeedback(swiper);
+// });
+// 
+
+import { fetchFeedbacks } from './sound-wave-api.js';
+
+async function renderFeedback() {
+  const feedbacks = await fetchFeedbacks();
+  const wrapper = document.querySelector('#feedback-list');
+  wrapper.innerHTML = '';
+
+  feedbacks.forEach(feedback => {
+    const slide = document.createElement('div');
+    slide.classList.add('swiper-slide');
+    slide.innerHTML = `
+      <div class="feedback-card">
+        <div class="rating" data-rating="${feedback.rating}">
+          <div class="rating__stars">
+            <span class="rating__star"></span>
+            <span class="rating__star"></span>
+            <span class="rating__star"></span>
+            <span class="rating__star"></span>
+            <span class="rating__star"></span>
+          </div>
+        </div> 
+        <p class="feedback-text">${feedback.descr}</p>
+        <h5 class="feedback-author">${feedback.name}</h5>
+      </div>`;
+    wrapper.appendChild(slide);
+  });
+
+  // Тепер ініціалізація Swiper
+  new Swiper('.feedback-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 32,
+    speed: 500,
+    loop: false,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+}
+
+document.addEventListener('DOMContentLoaded', renderFeedback);
+// Динамічно створюємо слайди по одному фідбеку
+const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+
+
