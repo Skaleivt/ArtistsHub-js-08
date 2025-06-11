@@ -36,6 +36,8 @@ export async function renderArtistModal(artistPromise) {
   showLoader();
   try {
     const artist = await artistPromise;
+    console.log(artist);
+    
 
     document.getElementById('artist-name').textContent = artist.strArtist || 'Unknown';
     document.getElementById('artist-years').textContent = artist.intFormedYear
@@ -101,39 +103,38 @@ if (Array.isArray(artist.tracksList) && artist.tracksList.length > 0) {
 
     tracks.forEach(track => {
       const name = track.strTrackName || track.strTrack || 'Unknown track';
-      const duration = track.intDuration || 'Unknown length';
+      const rawDuration = track.intDuration;
+      
+      
+      
       function formatDuration(ms) {
         const totalSeconds = Math.floor(Number(ms) / 1000);
         const minutes = Math.floor(totalSeconds / 60);
         const seconds = totalSeconds % 60;
         return `${minutes}:${seconds.toString().padStart(2, '0')}`;
       }
-      const rawDuration = track.intDuration;
+    
       const formattedDuration = rawDuration ? formatDuration(rawDuration) : 'Unknown length';
-      let youtubeLink = '';
-      if (track.strMusicVid) {
-        youtubeLink = `
-          <a href="${track.strMusicVid}" class="track-link" target="_blank" rel="noopener noreferrer">
-            <svg class="youtube-link" width="24" height="25" viewBox="0 0 24 25" fill="none">
-              <use href="/img/symbol-defs.svg#icon-Youtube"></use>
-            </svg>
-          </a>
-        `;
-      }
-
+      const youtubeUrl = track.movie;
+      
+    
       const li = document.createElement('li');
       li.className = 'track-item';
-
+    
       li.innerHTML = `
         <span class="track-name">${name}</span>
         <span class="track-time">${formattedDuration}</span>
-        <a href="${youtubeLink}" class="track-link" target="_blank" rel="noopener noreferrer">
-          <svg class="youtube-link" width="24" height="25" viewBox="0 0 24 25" fill="none">
-            <use href="./symbol-defs.svg#icon-Youtube"></use>
-          </svg>
-        </a>
+        ${
+          youtubeUrl
+            ? `<a href="${youtubeUrl}" class="track-link" target="_blank" rel="noopener noreferrer">
+                 <svg class="youtube-link" width="24" height="25">
+                   <use href="./symbol-defs.svg#icon-Youtube"></use>
+                 </svg>
+               </a>`
+            : '<span class="track-link">—</span>'
+        }
       `;
-
+    
       trackList.appendChild(li);
     });
 
