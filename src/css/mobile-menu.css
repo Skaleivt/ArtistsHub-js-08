@@ -20,12 +20,6 @@
   background-color: transparent;
 
 }
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 64px;
-}
 .mobile-menu-header {
   box-sizing: border-box;
   width: 100%;
@@ -91,8 +85,5 @@
 .mobile-menu .container {
   max-width: 375px;
   width: 100%;
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 16px;
 }
