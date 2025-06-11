@@ -114,7 +114,7 @@ if (Array.isArray(artist.tracksList) && artist.tracksList.length > 0) {
       if (track.strMusicVid) {
         youtubeLink = `
           <a href="${track.strMusicVid}" class="track-link" target="_blank" rel="noopener noreferrer">
-            <svg class="youtube-link" width="24" height="25" viewBox="0 0 24 25" fill="none">
+            <svg class="youtube-link" width="24" height="25">
               <use href="/img/symbol-defs.svg#icon-Youtube"></use>
             </svg>
           </a>
