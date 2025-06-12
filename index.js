@@ -7,7 +7,7 @@ import{a as E}from"./assets/vendor-BvLu_gPC.js";(function(){const n=document.cre
         <span class="track-time">${q}</span>
         ${b?`<a href="${b}" class="track-link" target="_blank" rel="noopener noreferrer">
                  <svg class="youtube-link" width="24" height="25">
-                   <use href="/img/symbol-defs.svg#icon-youtube"></use>
+                   <use href="img/symbol-defs.svg#icon-youtube"></use>
                  </svg>
                </a>`:'<span class="track-link"> </span>'}
       `,g.appendChild(h)}),d.appendChild(f),d.appendChild(g),i.appendChild(l),i.appendChild(d),a.appendChild(i)})}else{const t=document.createElement("p");t.className="no-albums",t.textContent="No tracks available.",a.appendChild(t)}D()}catch(n){console.error("Error loading artist:",n)}finally{C()}}const B="https://sound-wave.b.goit.study/api";async function O(s=1,n=8){try{return(await E.get(`${B}/artists`,{params:{page:s,limit:n}})).data}catch{return iziToast.error({message:"Sorry, there is no more artists. Please try later!",position:"topRight",messageColor:"#fff",messageSize:"16px",backgroundColor:" #EF4040",timeout:3e3}),{}}}async function P(){try{return(await E.get(`${B}/feedbacks`)).data.data}catch(s){return console.error("API Error:",s),{}}}document.querySelector("#artists");const $=document.querySelector(".artists-list"),N=document.querySelector("#load-more-btn");document.querySelector("#no-more-artists-msg");let S=1;const H=8;async function x(){w();try{const s=await O(S,H);if(s.artists.length===0){N.style.display="none",iziToast.info({title:"Notice",message:"No more artists to load",position:"bottomRight",messageColor:"#fff",messageSize:"16px",backgroundColor:" #EF4040",timeout:3e3});return}R(s.artists)}catch(s){console.error("Failed to load artists:",s)}finally{C()}}function R(s){const o=s.filter(a=>a._id).map(a=>{var e;const t=(e=a.genres)!=null&&e.length?a.genres.map(r=>`<span class="artist-card-genre">${r}</span>`).join(""):'<span class="artist-card-genre">Unknown</span>';return`
@@ -27,7 +27,7 @@ import{a as E}from"./assets/vendor-BvLu_gPC.js";(function(){const n=document.cre
 <button type="button" class="artist-card-btn" data-artist-open data-artist-id="${a._id}">
   Learn More
   <svg class="artist-card-btn-icon" width="8" height="14">
-    <use href="/img/symbol-defs.svg#icon-triangle-white"></use>
+    <use href="img/symbol-defs.svg#icon-triangle-white"></use>
   </svg>
 </button>
 
