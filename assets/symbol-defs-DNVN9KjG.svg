@@ -6,7 +6,7 @@
     <symbol id="icon-arrow-down" viewBox="0 0 32 32">
       <path fill="#fff" d="m31.33 15.949-3.232-3.232-9.813 9.813V.619h-4.571V22.53l-9.813-9.813-3.232 3.232 15.33 15.33 15.33-15.33z" style="fill:var(--color1, #fff)"/>
     </symbol>
-    <symbol id="icon-burger-menu" viewBox="0 0 32 32">
+    <symbol id="icon-burger-menu" viewBox="0 0 24 24">
       <path fill="#fff" d="M10.667 12h10.667v1.333H10.667V12zm2.666 3.333h8v1.333h-8v-1.333zm3.334 3.334h4.667V20h-4.667v-1.333z" style="fill:var(--color1, #fff)"/>
     </symbol>
     <symbol id="icon-caret-right" viewBox="0 0 31 32">
