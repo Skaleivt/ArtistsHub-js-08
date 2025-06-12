@@ -26,9 +26,15 @@ export async function getArtists(page = 1, limit = 8) {
   }
 }
 
-export async function fetchFeedbacks() {
+export async function fetchFeedbacks(page = 1, limit = 25) {
   try {
-    const response = await axios.get(`${BASE_URL}/feedbacks`);
+    const response = await axios.get(`${BASE_URL}/feedbacks`, {
+      params: {
+      page,
+      limit,
+    }
+    });
+    
     return response.data.data;
   } catch (error) {
     console.error('API Error:', error);
