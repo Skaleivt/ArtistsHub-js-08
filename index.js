@@ -14,7 +14,7 @@ import{a as E}from"./assets/vendor-BvLu_gPC.js";(function(){const n=document.cre
         <li class="artist-card" data-id="${e._id}">
           <img 
             class="artist-card-img" 
-            src="${e.strArtistThumb||a}" 
+            src="${e.strArtistThumb} || ${a}"
             alt="${e.strArtist||"Unknown Artist"}" 
           />
           <div class="artist-card-content">
