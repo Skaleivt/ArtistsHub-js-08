@@ -1,6 +1,7 @@
 import { renderArtistModal, hideLoader, showLoader } from './artist-modal.js';
 import { getArtists } from './sound-wave-api.js';
 import spritePath from '../img/symbol-defs.svg';
+import placeholder from '../img/placeholder.jpg';
 
 
 
@@ -49,12 +50,13 @@ function renderArtists(artists, spritePath) {
       const genresMarkup = artist.genres?.length
         ? artist.genres.map(genre => `<span class="artist-card-genre">${genre}</span>`).join('')
         : '<span class="artist-card-genre">Unknown</span>';
+        const artistImage = artist.strArtistThumb || placeholder;
 
       return `
         <li class="artist-card" data-id="${artist._id}">
           <img 
             class="artist-card-img" 
-            src="${artist.strArtistThumb || '../img/placeholder.jpg'}" 
+            src="${artistImage}" 
             alt="${artist.strArtist || 'Unknown Artist'}" 
           />
           <div class="artist-card-content">
