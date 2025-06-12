@@ -15,5 +15,13 @@ refs.closeBtn.addEventListener('click', () => {
   refs.mobileMenu.classList.add('is-hidden');
   document.body.style.overflow = '';
 });
+const navLinks = document.querySelectorAll('[data-menu] a[href*="#"]');
 
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    refs.mobileMenu.classList.remove('is-open');
+    refs.mobileMenu.classList.add('is-hidden');
+    document.body.style.overflow = '';
+  });
+});
 export {};

@@ -1,12 +1,12 @@
 .feedback-section {
 padding: 64px 16px;
-/* overflow: hidden; */
 color: white;
 }
-
 .feedback-swiper {
 overflow: hidden;
 position: relative;
+width: 100%;
+
 } 
 
 
@@ -170,7 +170,7 @@ padding: 64px 32px;
 
 .feedback-text {
 font-size: 18px;
-max-width: 640px;
+max-width: 520px;
 }
 
 .feedback-author {

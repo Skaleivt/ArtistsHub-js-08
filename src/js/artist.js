@@ -60,7 +60,7 @@ function renderArtists(artists) {
               ${artist.strBiographyEN || 'No description available.'}
             </p>
 
-<button type="button" class="artist-card-btn" data-artist-open>
+<button type="button" class="artist-card-btn" data-artist-open data-artist-id="${artist._id}">
   Learn More
   <svg class="artist-card-btn-icon" width="8" height="14">
     <use href="#icon-triangle-white"></use>
@@ -74,26 +74,25 @@ function renderArtists(artists) {
     .join('');
 
   artistsList.insertAdjacentHTML('beforeend', markup);
-  attachModalListeners();
+  
 }
 
 function attachModalListeners() {
-  const buttons = document.querySelectorAll('[data-artist-open]');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.dataset.artistId;
-      console.log('🔍 Clicked artist ID:', id);
+  artistsList.addEventListener('click', (event) => {
+    const btn = event.target.closest('[data-artist-open]');
+    if (!btn) return;
 
-      if (!id) {
-        console.warn('Artist ID is missing — modal will not open.');
-        return;
-      }
+    const id = btn.dataset.artistId;
 
-      const artistPromise = fetch(`https://sound-wave.b.goit.study/api/artists/${id}`).then(res =>
-        res.json()
-      );
-      renderArtistModal(artistPromise);
-    });
+    if (!id) {
+      console.warn('Artist ID is missing — modal will not open.');
+      return;
+    }
+
+    const artistPromise = fetch(`https://sound-wave.b.goit.study/api/artists/${id}`).then(res =>
+      res.json()
+    );
+    renderArtistModal(artistPromise);
   });
 }
 
@@ -103,3 +102,4 @@ loadMoreButton.addEventListener('click', async () => {
 });
 
 loadArtists();
+attachModalListeners();

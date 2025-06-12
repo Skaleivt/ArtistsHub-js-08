@@ -3,10 +3,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: transparent;
   z-index: 1000;
-
-  background: linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, #060307 100%);
+  background: linear-gradient(180deg, #060307 75%, rgba(6, 3, 7, 0) 100%);
 }
 
 html {
