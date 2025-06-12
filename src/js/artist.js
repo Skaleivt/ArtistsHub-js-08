@@ -54,7 +54,7 @@ function renderArtists(artists, spritePath, placeholder) {
         <li class="artist-card" data-id="${artist._id}">
           <img 
             class="artist-card-img" 
-            src="${artist.strArtistThumb || placeholder}" 
+            src="${artist.strArtistThumb} || ${placeholder}"
             alt="${artist.strArtist || 'Unknown Artist'}" 
           />
           <div class="artist-card-content">
