@@ -22,20 +22,20 @@ body {
 
 /* backdrop */
     .artist-backdrop {
-        background-color: #060307;
+        
+        background-color: rgba(0, 0, 0, 0.25);
         position: fixed;
         inset: 0;
         display: flex; 
         justify-items: center;
         align-items: flex-start;
-        box-sizing: border-box;
-        z-index: 1000;
+        z-index: 2001;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
         overflow-y: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+        overflow-x: hidden;
+        padding: 64px 0;
     }
 
     .artist-backdrop.is-open {
@@ -49,34 +49,29 @@ body {
 
     .artist-modal-container  {
         position: relative;
-        box-sizing: border-box;
+        border-radius: 16px;
+        background-color: #060307;   
+        overflow-y: auto;
+    }
+    .artist-modal{
         display: flex;
         align-items: center;
         justify-content: flex-start;
         flex-direction: column;
         gap: 16px;
-        border-radius: 16px;
-        padding: 52px 8px;
-        background-color: #060307;
-        width: 100%; 
-        overflow-y: auto;
-        min-width: 320px;
-        max-width: 375px;
-        margin: 0 auto;
+        padding: 52px 0;
     }
 
     @media screen and (min-width: 768px) {
         .artist-modal-container{
-            max-width: 768px;
             gap: 48px;
-            padding: 64px 24px;
+            padding: 64px 0;
         }
     }
 
     @media screen and (min-width: 1440px) {
         .artist-modal-container {
-            max-width: 1440px;
-            padding: 64px;
+            padding: 64px 0;
         }
     }
 
@@ -230,15 +225,18 @@ body {
     }
 
     .albums-container {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 32px;
-        align-items: stretch;
+        width: 100%;
+        /* align-items: stretch; */
     }
 
     @media screen and (min-width: 768px) {
     .albums-container {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-basis: calc(50% - 32px);
     }
     }
 
@@ -247,23 +245,32 @@ body {
             grid-template-columns: repeat(4, 1fr);
         }
     }
-
-/* album*/
-    .album {
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        box-sizing: border-box;
+   
+      .album {
+        width: 100%;
+        background-color: #1e1c1f;
         border-radius: 16px;
         padding: 14px 11px;
-        background-color: #1e1c1f;
-        max-width: 100%;
-        height: 564px;
+        box-sizing: border-box;
         overflow-y: auto;
         scrollbar-width: thin;
-        -ms-overflow-style: none;
-    }
+        height: 564px;
+      }
+      
+      
+      @media screen and (min-width: 768px) {
+        .album {
+          width: calc(50% - 16px); 
+        }
+      }
+      
+      
+      @media screen and (min-width: 1440px) {
+        .album {
+          width: calc(25% - 24px);
+        }
+      }
+
 
         .album::-webkit-scrollbar-track {
             background: transparent;
@@ -277,9 +284,7 @@ body {
     }
 
     @media screen and (min-width: 768px) {
-        .album {
-            min-width: 0;
-        }
+      
 
         .album-title {
             margin-bottom: 12px;

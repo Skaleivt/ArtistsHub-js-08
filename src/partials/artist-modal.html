@@ -1,37 +1,39 @@
 <div id="artist-modal" class="artist-backdrop">
-  <div class="artist-modal-container" role="dialog" aria-modal="true">
-    <button class="artist-modal-close" id="artist-modal-close">
-      <svg width="32" height="32" viewBox="0 0 32 32">
-        <use href="/img/symbol-defs.svg#icon-close"></use>
-      </svg>
-    </button>
+  <div class="artist-modal-container container">
+    <div class="artist-modal" role="dialog" aria-modal="true">
+      <button class="artist-modal-close" id="artist-modal-close">
+        <svg width="32" height="32" viewBox="0 0 32 32">
+          <use href="/img/symbol-defs.svg#icon-close"></use>
+        </svg>
+      </button>
 
-    <h1 id="artist-name" class="artist-modal-header"></h1>
+      <h1 id="artist-name" class="artist-modal-header"></h1>
 
-    <div class="artist-modal-content">
-      <img id="artist-image" alt="Artist image" class="artist-photo" />
-      <div class="artist-info">
-        <ul class="artist-meta">
-          <li class="artist-meta-item">
-            <strong>Years active:</strong> <span id="artist-years"></span>
-          </li>
-          <li class="artist-meta-item">
-            <strong>Sex:</strong> <span id="artist-sex"></span>
-          </li>
-          <li class="artist-meta-item">
-            <strong>Members:</strong> <span id="artist-members"></span>
-          </li>
-          <li class="artist-meta-item">
-            <strong>Country:</strong> <span id="artist-country"></span>
-          </li>
-        </ul>
-        <p id="artist-bio" class="artist-bio"></p>
-        <div id="artist-genres" class="artist-genres"></div>
+      <div class="artist-modal-content">
+        <img src="" id="artist-image" alt="Artist image" class="artist-photo" />
+        <div class="artist-info">
+          <ul class="artist-meta">
+            <li class="artist-meta-item">
+              <strong>Years active:</strong> <span id="artist-years"></span>
+            </li>
+            <li class="artist-meta-item">
+              <strong>Sex:</strong> <span id="artist-sex"></span>
+            </li>
+            <li class="artist-meta-item">
+              <strong>Members:</strong> <span id="artist-members"></span>
+            </li>
+            <li class="artist-meta-item">
+              <strong>Country:</strong> <span id="artist-country"></span>
+            </li>
+          </ul>
+          <p id="artist-bio" class="artist-bio"></p>
+          <div id="artist-genres" class="artist-genres"></div>
+        </div>
       </div>
-    </div>
 
-    <h2 class="albums-title">Albums</h2>
-    <div id="albums-container" class="albums-container"></div>
+      <h2 class="albums-title">Albums</h2>
+      <ul id="albums-container" class="albums-container"></ul>
+    </div>
   </div>
 </div>
 <div id="modal-loader" class="modal-loader hidden">Loading...</div>

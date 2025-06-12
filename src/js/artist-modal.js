@@ -4,10 +4,10 @@ const closeModalBtn = document.getElementById('artist-modal-close');
 const loader = document.getElementById('modal-loader');
 
 
-function showLoader() {
+export function showLoader() {
   loader.classList.remove('hidden');
 }
-function hideLoader() {
+export function hideLoader() {
   loader.classList.add('hidden');
 }
 
@@ -80,7 +80,7 @@ if (Array.isArray(artist.tracksList) && artist.tracksList.length > 0) {
   });
 
   Object.entries(tracksByAlbum).forEach(([albumName, tracks]) => {
-    const albumDiv = document.createElement('div');
+    const albumDiv = document.createElement('li');
     albumDiv.className = 'album';
 
     const title = document.createElement('h2');
@@ -128,7 +128,7 @@ if (Array.isArray(artist.tracksList) && artist.tracksList.length > 0) {
           youtubeUrl
             ? `<a href="${youtubeUrl}" class="track-link" target="_blank" rel="noopener noreferrer">
                  <svg class="youtube-link" width="24" height="25">
-                   <use href="/img/symbol-defs.svg#icon-youtube"></use>
+                   <use href="./img/symbol-defs.svg#icon-youtube"></use>
                  </svg>
                </a>`
             : '<span class="track-link"> </span>'

@@ -1,4 +1,4 @@
-import { renderArtistModal } from './artist-modal.js';
+import { renderArtistModal, hideLoader, showLoader } from './artist-modal.js';
 import { getArtists } from './sound-wave-api.js';
 
 const artistsSection = document.querySelector('#artists');
@@ -10,6 +10,7 @@ let page = 1;
 const limit = 8;
 
 async function loadArtists() {
+  showLoader();
   try {
     const data = await getArtists(page, limit);
 
@@ -29,17 +30,18 @@ async function loadArtists() {
     
       return;
     }
-
+    
     renderArtists(data.artists);
   } catch (error) {
     console.error('Failed to load artists:', error);
+  } finally {
+    hideLoader(); 
   }
 }
 
 
 function renderArtists(artists) {
   const filtered = artists.filter(artist => artist._id);
-
   const markup = filtered
     .map(artist => {
       const genresMarkup = artist.genres?.length
@@ -63,7 +65,7 @@ function renderArtists(artists) {
 <button type="button" class="artist-card-btn" data-artist-open data-artist-id="${artist._id}">
   Learn More
   <svg class="artist-card-btn-icon" width="8" height="14">
-    <use href="#icon-triangle-white"></use>
+    <use href="./img/symbol-defs.svg#icon-triangle-white"></use>
   </svg>
 </button>
 
@@ -100,6 +102,5 @@ loadMoreButton.addEventListener('click', async () => {
   page += 1;
   await loadArtists();
 });
-
 loadArtists();
 attachModalListeners();

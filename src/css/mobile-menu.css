@@ -1,8 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 .logo {
   fill: #764191;
 }
@@ -27,6 +23,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #060307;
+  margin-bottom: 40px;
 }
 .mobile-menu {
   box-sizing: border-box;
@@ -83,9 +80,14 @@
   font: 500 26px / 1.5 'IBM Plex Sans', sans-serif;
   color: #fff;
 }
-
-.mobile-menu .container {
-  max-width: 375px;
+.mobile-menu-container{
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 0 16px;
+}
+
+.logo-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

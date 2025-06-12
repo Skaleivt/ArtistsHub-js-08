@@ -1,8 +1,8 @@
 .artists-section {
-    margin: 64px 0;
+    padding: 64px 0;
 }
 
-.artists-section-title {
+.artists-section-text {
     font-family: "Epilogue", sans-serif;
     font-weight: 700;
     font-size: 44px;
@@ -12,33 +12,22 @@
     letter-spacing: -0.01em;
 }
 
-.artists-section-subtitle {
+.artists-section-title {
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 1.5;
-    letter-spacing: 0;
+  
     color: #fff;
     margin-bottom: 16px;
 }
-
-.artists-section .container {
-    padding-left: 16px;
-    padding-right: 16px;
-    max-width: 288px;
-    box-sizing: border-box;
-    margin: 0 auto;
-}
-
 .artists-list {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    grid-template-columns: 1fr;
-    gap: 32px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+    align-items: center;
+    gap: 64px;
+    
 }
 
 .artists-list-wrapper {
@@ -46,15 +35,14 @@
 }
 
 .artist-card {
-    background-color: transparent;
+  width: 100%;  
+  background-color: transparent;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
-    cursor: pointer;
-    width: fit-content;
-    margin: 0 auto;
+    cursor: pointer; 
 }
 
 .artist-card:hover {
@@ -62,18 +50,18 @@
 }
 
 .artist-card-img {
-    width: 288px;
+    width: 100%;
     height: 177px;
     object-fit: cover;
     object-position: top;
     border-radius: 16px;
     display: block;
+    margin-bottom: 24px;
 }
 
 .artist-card-content {
     display: flex;
     flex-direction: column;
-    padding: 24px 0 0 0;
     gap: 16px;
     box-sizing: border-box;
     max-width: 288px;
@@ -147,7 +135,7 @@
 }
 
 .load-more-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 12px 94px;
@@ -170,17 +158,16 @@
 
 /* Tablet (768px - 1024px) */
 @media screen and (min-width: 768px) {
-    .artists-section-title {
+    .artists-section-text {
       font-size: 40px;
     }
-  
-    .artists-section .container {
-      max-width: 704px;
-      padding: 0 32px;
-    }
+  .artists-list{
+    gap: 32px;
+  }
+   
   
     .artist-card-img {
-      width: 704px;
+  
       height: 433px;
     }
   
@@ -198,21 +185,22 @@
     .artists-section {
       margin: 112px 0;
     }
-  
-    .artists-section-title {
+    
+    .artists-section-text {
       font-size: 60px;
       margin-bottom: 80px;
-    }
-  
-    .artists-section .container {
-      max-width: 1440px;
-      padding: 0 64px;
+      max-width: 700px;
     }
   
     .artists-list {
-      grid-template-columns: repeat(2, auto);
+      flex-direction: row;
+      flex-wrap: wrap;
+     
+      
     }
-  
+    .artist-card{
+      flex-basis: calc(50% - 32px);
+    }
     .artist-card-img {
       width: 640px;
       height: 393px;
