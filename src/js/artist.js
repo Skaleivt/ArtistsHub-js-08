@@ -1,10 +1,11 @@
 import { renderArtistModal, hideLoader, showLoader } from './artist-modal.js';
 import { getArtists } from './sound-wave-api.js';
+import spritePath from '../img/symbol-defs.svg';
 
-const artistsSection = document.querySelector('#artists');
+
 const artistsList = document.querySelector('.artists-list');
 const loadMoreButton = document.querySelector('#load-more-btn');
-const noMoreArtistsMsg = document.querySelector('#no-more-artists-msg');
+
 
 let page = 1;
 const limit = 8;
@@ -31,7 +32,7 @@ async function loadArtists() {
       return;
     }
     
-    renderArtists(data.artists);
+    renderArtists(data.artists, spritePath);
   } catch (error) {
     console.error('Failed to load artists:', error);
   } finally {
@@ -40,7 +41,7 @@ async function loadArtists() {
 }
 
 
-function renderArtists(artists) {
+function renderArtists(artists, spritePath) {
   const filtered = artists.filter(artist => artist._id);
   const markup = filtered
     .map(artist => {
@@ -65,7 +66,7 @@ function renderArtists(artists) {
 <button type="button" class="artist-card-btn" data-artist-open data-artist-id="${artist._id}">
   Learn More
   <svg class="artist-card-btn-icon" width="8" height="14">
-    <use href="img/symbol-defs.svg#icon-triangle-white"></use>
+    <use href="${spritePath}#icon-triangle-white"></use>
   </svg>
 </button>
 

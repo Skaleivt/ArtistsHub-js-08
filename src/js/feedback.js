@@ -20,7 +20,7 @@ slide.innerHTML = `
       </div>
     </div> 
     <p class="feedback-text">${feedback.descr || '—'}</p>
-    <h5 class="feedback-author">${feedback.name || 'Анонім'}</h5>
+    <h3 class="feedback-author">${feedback.name || 'Анонім'}</h3>
   </div>`;
 wrapper.appendChild(slide);
 });
