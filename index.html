@@ -13,10 +13,6 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     />
     <script type="module" crossorigin src="/ArtistsHub-js-08/index.js"></script>
@@ -26,7 +22,7 @@
   <body>
     <section class="header">
   <div class="container header-container">
-    <a class="header-logo" href="/">
+    <a class="header-logo" href="../index.html">
       <svg class="logo another-color" width="119" height="51">
         <use href="/ArtistsHub-js-08/assets/symbol-defs-DNVN9KjG.svg#icon-Company-Logo"></use>
       </svg>
@@ -44,7 +40,7 @@
         </li>
       </ul>
     </nav>
-    <button type="button" class="burger" data-menu-open>
+    <button type="button" class="burger" data-menu-open aria-label="open menu">
       <svg class="burger-icon" width="48" height="48">
         <use href="/ArtistsHub-js-08/assets/symbol-defs-DNVN9KjG.svg#icon-burger-menu"></use>
       </svg>
@@ -54,12 +50,17 @@
 <div class="mobile-menu is-hidden" data-menu>
   <div class="container mobile-menu-container">
     <div class="mobile-menu-header">
-      <a class="header-logo" href="/src/index.html">
+      <a class="header-logo" href="../index.html">
         <svg class="logo" width="119" height="51">
           <use href="/ArtistsHub-js-08/assets/symbol-defs-DNVN9KjG.svg#icon-Company-Logo"></use>
         </svg>
       </a>
-      <button type="button" class="close" data-menu-close>
+      <button
+        type="button"
+        class="close"
+        data-menu-close
+        aria-label="close menu"
+      >
         <svg class="icon-close" width="24" height="24">
           <use href="/ArtistsHub-js-08/assets/symbol-defs-DNVN9KjG.svg#icon-close"></use>
         </svg>
@@ -83,9 +84,8 @@
 
 
 
-  <main>
-
-    <section class="section-hero hero">
+    <main>
+      <section class="section-hero hero">
   <div class="hero-container container">
     <div class="hero-content">
       <h1 class="hero-title">Discover Your Next Favorite Artist Today</h1>
@@ -105,18 +105,16 @@
   </div>
 </section>
 
-    <section class="artists-section" id="artists">
+      <section class="artists-section" id="artists">
   <div class="container">
     <div class="artists-section-header">
       <h2 class="artists-section-title">Artists</h2>
       <p class="artists-section-text">Explore Your New Favorite Artists</p>
-    </div>
 
-    <div class="artists-list-wrapper">
-      <ul class="artists-list"></ul>
-    </div>
+      <div class="artists-list-wrapper">
+        <ul class="artists-list"></ul>
+      </div>
 
-    
       <button type="button" id="load-more-btn" class="load-more-btn">
         Load More
         <svg width="14" height="14" style="margin-left: 8px">
@@ -132,7 +130,7 @@
   rel="stylesheet"
 />
 
-    <div id="artist-modal" class="artist-backdrop">
+      <div id="artist-modal" class="artist-backdrop">
   <div class="artist-modal-container container">
     <div class="artist-modal" role="dialog" aria-modal="true">
       <button class="artist-modal-close" id="artist-modal-close">
@@ -144,7 +142,12 @@
       <h1 id="artist-name" class="artist-modal-header"></h1>
 
       <div class="artist-modal-content">
-        <img src="" id="artist-image" alt="Artist image" class="artist-photo" />
+        <img
+          src="./img/placeholder.jpg'"
+          id="artist-image"
+          alt="Artist image"
+          class="artist-photo"
+        />
         <div class="artist-info">
           <ul class="artist-meta">
             <li class="artist-meta-item">
@@ -172,7 +175,7 @@
 </div>
 <div id="modal-loader" class="modal-loader hidden">Loading...</div>
 
-    <section class="about-section" id="aboutUs">
+      <section class="about-section" id="aboutUs">
   <div class="container">
     <div class="about-section-content">
       <picture>
@@ -212,7 +215,7 @@
   </div>
 </section>
 
-    <section class="feedback-section" id="reviews">
+      <section class="feedback-section" id="reviews">
   <div class="container">
     <h2 class="visually-hidden">feedback</h2>
     <div class="swiper feedback-swiper">
@@ -237,9 +240,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-  </main>
+    </main>
 
-  <footer class="footer">
+    <footer class="footer">
   <div class="container">
     <div class="footer-content">
       <div class="footer-logo">
@@ -273,6 +276,7 @@
           class="footer-icon"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="instagram"></a>
         >
           <svg width="31" height="32">
             <use href="/ArtistsHub-js-08/assets/symbol-defs-DNVN9KjG.svg#icon-Instagram"></use>
@@ -283,6 +287,7 @@
           class="footer-icon"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="facebook"></a>
         >
           <svg width="31" height="32">
             <use href="/ArtistsHub-js-08/assets/symbol-defs-DNVN9KjG.svg#icon-Facebook"></use>
@@ -293,6 +298,7 @@
           class="footer-icon"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="youtube"></a>
         >
           <svg width="31" height="32">
             <use href="/ArtistsHub-js-08/assets/symbol-defs-DNVN9KjG.svg#icon-youtube"></use>
@@ -305,6 +311,5 @@
 </footer>
 
 
-</body>
-
+  </body>
 </html>
