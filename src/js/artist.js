@@ -35,7 +35,7 @@ async function loadArtists() {
       return;
     }
     
-    renderArtists(data.artists, spritePath);
+    renderArtists(data.artists, spritePath, placeholder);
 
     loadMoreButton.style.display = 'flex';
   } catch (error) {
@@ -46,7 +46,7 @@ async function loadArtists() {
 }
 
 
-function renderArtists(artists, spritePath) {
+function renderArtists(artists, spritePath, placeholder) {
   const filtered = artists.filter(artist => artist._id);
   const markup = filtered
     .map(artist => {
