@@ -53,8 +53,8 @@ function renderArtists(artists, spritePath, placeholder) {
       const genresMarkup = artist.genres?.length
         ? artist.genres.map(genre => `<span class="artist-card-genre">${genre}</span>`).join('')
         : '<span class="artist-card-genre">Unknown</span>';
-        const artistImage = artist.strArtistThumb && artist.strArtistThumb.trim() !== '' 
-  ? artist.strArtistThumb 
+        const artistImage = artist.strArtistThumb?.trim() 
+  ? artist.strArtistThumb.trim()
   : placeholder;
 
       return `
