@@ -1,7 +1,7 @@
 import { renderArtistModal, hideLoader, showLoader } from './artist-modal.js';
 import { getArtists } from './sound-wave-api.js';
 import spritePath from '../img/symbol-defs.svg';
-import placeholder from '../img/placeholder.jpg';
+import placeholder from "../img/placeholder.jpg";
 
 
 
