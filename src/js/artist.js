@@ -13,6 +13,7 @@ let page = 1;
 const limit = 8;
 
 async function loadArtists() {
+  loadMoreButton.style.display = 'none';
   showLoader();
   try {
     const data = await getArtists(page, limit);
@@ -35,6 +36,8 @@ async function loadArtists() {
     }
     
     renderArtists(data.artists, spritePath);
+
+    loadMoreButton.style.display = 'flex';
   } catch (error) {
     console.error('Failed to load artists:', error);
   } finally {
