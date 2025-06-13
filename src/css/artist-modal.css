@@ -1,4 +1,6 @@
+/* @media screen and (min-width: 768px){}
 
+@media screen and (min-width: 1440px){}  */
 h1,
 h2 {
     font-family: "Epilogue", sans-serif; 
@@ -22,8 +24,7 @@ body {
 
 /* backdrop */
     .artist-backdrop {
-        
-        background-color: rgba(0, 0, 0, 0.25);
+        background-color: rgba(50, 50, 50, 0.75);
         position: fixed;
         inset: 0;
         display: flex; 
@@ -33,10 +34,20 @@ body {
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding: 64px 0;
+        padding: 64px 16px;
     }
+
+    @media screen and (min-width: 768px) {
+        .artist-backdrop {
+            padding: 64px 32px;
+        }
+    }
+
+        @media screen and (min-width: 1440px) {
+            .artist-backdrop {
+                padding: 64px 64px;
+            }
+        }
 
     .artist-backdrop.is-open {
         opacity: 1;
@@ -50,16 +61,13 @@ body {
     .artist-modal-container  {
         position: relative;
         border-radius: 16px;
-        background-color: #060307;   
+        background-color: #060307;
+        max-height: 100%;
         overflow-y: auto;
-    }
-    .artist-modal{
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-direction: column;
-        gap: 16px;
-        padding: 52px 0;
+        scrollbar-width: thin;
+        scroll-behavior: smooth;
+        scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+        scroll-margin-block-start: 5px;
     }
 
     @media screen and (min-width: 768px) {
@@ -75,6 +83,30 @@ body {
         }
     }
 
+    /* artist-modal */
+
+    .artist-modal{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        padding: 52px 8px;
+    }
+
+    @media screen and (min-width: 768px){
+        .artist-modal {
+            gap: 48px;
+            padding: 64px 24px;
+        }
+    }
+
+    @media screen and (min-width: 1440px){
+        .artist-modal {
+            padding: 64px;
+        }
+    } 
+    
 /* close button */
 
     .artist-modal-close {
@@ -110,6 +142,8 @@ body {
         font-size: 32px;
         text-align: center;
     }
+
+/* artist modal content */
 
     .artist-modal-content {
         display: flex;
@@ -220,6 +254,7 @@ body {
     }
 
 /* albums container */
+
     .albums-title {
         align-self: flex-start;
     }
@@ -229,15 +264,14 @@ body {
         flex-direction: column;
         gap: 32px;
         width: 100%;
-        /* align-items: stretch; */
     }
 
     @media screen and (min-width: 768px) {
-    .albums-container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        flex-basis: calc(50% - 32px);
-    }
+        .albums-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            flex-basis: calc(50% - 32px);
+        }
     }
 
     @media screen and (min-width: 1440px) {
@@ -246,7 +280,7 @@ body {
         }
     }
    
-      .album {
+    .album {
         width: 100%;
         background-color: #1e1c1f;
         border-radius: 16px;
@@ -255,26 +289,26 @@ body {
         overflow-y: auto;
         scrollbar-width: thin;
         height: 564px;
-      }
+    }
       
       
-      @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         .album {
           width: calc(50% - 16px); 
         }
-      }
+    }
       
       
-      @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1440px) {
         .album {
           width: calc(25% - 24px);
         }
-      }
+    }
 
 
-        .album::-webkit-scrollbar-track {
-            background: transparent;
-        }
+    .album::-webkit-scrollbar-track {
+        background: transparent;
+    }
 
     .album-title {
         margin-bottom: 16px;
@@ -284,8 +318,6 @@ body {
     }
 
     @media screen and (min-width: 768px) {
-      
-
         .album-title {
             margin-bottom: 12px;
         }
@@ -353,6 +385,7 @@ body {
     }
 
 /* Loader */
+
     .modal-loader {
     position: fixed;
     top: 50%;
