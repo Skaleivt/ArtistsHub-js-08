@@ -37,8 +37,8 @@
     </noscript>
 
     <script type="module" crossorigin src="/ArtistsHub-js-08/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/ArtistsHub-js-08/assets/vendor-BvLu_gPC.js">
-    <link rel="stylesheet" crossorigin href="/ArtistsHub-js-08/assets/index-BlHA_ILB.css">
+    <link rel="modulepreload" crossorigin href="/ArtistsHub-js-08/assets/vendor-DDD7fsZd.js">
+    <link rel="stylesheet" crossorigin href="/ArtistsHub-js-08/assets/index-kpeY8AH2.css">
   </head>
   <body>
     <section class="header">
@@ -252,6 +252,40 @@
       <div class="swiper-scrollbar"></div>
     </div>
   </div>
+  <div class="backdrop is-hidden" id="feedback-modal">
+    <div class="modal-feedback">
+      <button class="modal-close-btn" id="close-feedback-modal">×</button>
+      <h2 class="modal-title">Submit feedback</h2>
+      <form class="feedback-form" id="feedback-form">
+        <label>
+          Name
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Enter your name..."
+          />
+        </label>
+        <label>
+          Message
+          <textarea
+            name="message"
+            placeholder="Type your message..."
+            required
+          ></textarea>
+        </label>
+        <div class="star-rating" id="rating">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+  <button class="submit-feedback-open">Leave feedback</button>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
