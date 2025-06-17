@@ -1,7 +1,7 @@
 import { renderArtistModal, hideLoader, showLoader } from './artist-modal.js';
 import { getArtists } from './sound-wave-api.js';
 import spritePath from '../img/symbol-defs.svg';
-import placeholder from '../img/placeholder.jpg';
+import placeholder from "../img/placeholder.jpg";
 
 
 
@@ -13,6 +13,7 @@ let page = 1;
 const limit = 8;
 
 async function loadArtists() {
+  loadMoreButton.style.display = 'none';
   showLoader();
   try {
     const data = await getArtists(page, limit);
@@ -34,7 +35,9 @@ async function loadArtists() {
       return;
     }
     
-    renderArtists(data.artists, spritePath);
+    renderArtists(data.artists, spritePath, placeholder);
+
+    loadMoreButton.style.display = 'flex';
   } catch (error) {
     console.error('Failed to load artists:', error);
   } finally {
@@ -43,14 +46,16 @@ async function loadArtists() {
 }
 
 
-function renderArtists(artists, spritePath) {
+function renderArtists(artists, spritePath, placeholder) {
   const filtered = artists.filter(artist => artist._id);
   const markup = filtered
     .map(artist => {
       const genresMarkup = artist.genres?.length
         ? artist.genres.map(genre => `<span class="artist-card-genre">${genre}</span>`).join('')
         : '<span class="artist-card-genre">Unknown</span>';
-        const artistImage = artist.strArtistThumb || placeholder;
+        const artistImage = artist.strArtistThumb?.trim() 
+  ? artist.strArtistThumb.trim()
+  : placeholder;
 
       return `
         <li class="artist-card" data-id="${artist._id}">

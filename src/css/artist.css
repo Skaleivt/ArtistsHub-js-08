@@ -24,7 +24,6 @@
 .artists-list {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 64px;
     
@@ -34,9 +33,8 @@
     margin-top: 32px;
 }
 
-.artist-card {
-  width: 100%;  
-  background-color: transparent;
+.artist-card {  
+    background-color: transparent;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     display: flex;
@@ -165,7 +163,6 @@
     gap: 32px;
   }
    
-  
     .artist-card-img {
   
       height: 433px;
@@ -182,8 +179,11 @@
   
   /* Desktop (1440px and up) */
   @media screen and (min-width: 1440px) {
+    .container {
+      box-sizing: border-box;
+    }
     .artists-section {
-      margin: 112px 0;
+      padding: 112px 0;
     }
     
     .artists-section-text {
@@ -199,10 +199,9 @@
       
     }
     .artist-card{
-      flex-basis: calc(50% - 32px);
+      flex-basis: calc((100% - 32px) / 2);
     }
     .artist-card-img {
-      width: 640px;
       height: 393px;
     }
   
