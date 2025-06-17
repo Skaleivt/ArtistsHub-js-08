@@ -19,6 +19,40 @@
       <div class="swiper-scrollbar"></div>
     </div>
   </div>
+  <div class="backdrop is-hidden" id="feedback-modal">
+    <div class="modal-feedback">
+      <button class="modal-close-btn" id="close-feedback-modal">×</button>
+      <h2 class="modal-title">Submit feedback</h2>
+      <form class="feedback-form" id="feedback-form">
+        <label>
+          Name
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Enter your name..."
+          />
+        </label>
+        <label>
+          Message
+          <textarea
+            name="message"
+            placeholder="Type your message..."
+            required
+          ></textarea>
+        </label>
+        <div class="star-rating" id="rating">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+  <button class="submit-feedback-open">Leave feedback</button>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
